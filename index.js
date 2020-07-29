@@ -195,6 +195,8 @@ async function run() {
       "--install",
       "--wait",
       "--atomic",
+      `--repo=${repository}`,
+      `--version=${chartVersion}`,
       `--namespace=${namespace}`,
     ];
 
@@ -210,9 +212,9 @@ async function run() {
     if (dryRun) args.push("--dry-run");
     if (appName) args.push(`--set=app.name=${appName}`);
     if (version) args.push(`--set=app.version=${version}`);
-    if (chartVersion) args.push(`--version=${chartVersion}`);
+    // if (chartVersion) args.push(`--version=${chartVersion}`);
     if (timeout) args.push(`--timeout=${timeout}`);
-    if (repository) args.push(`--repo=${repository}`);
+    // if (repository) args.push(`--repo=${repository}`);
     valueFiles.forEach(f => args.push(`--values=${f}`));
     args.push("--values=./values.yml");
 
